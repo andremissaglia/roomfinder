@@ -32,5 +32,60 @@ angular.module('roomfinder.controllers', [])
       console.log(touch);
     }
   });
-}]);
 
+  var transform = math.matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]]);
+  console.log(transform);
+  function draw(){
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.save();
+    context.transform(
+      transform.subset(math.index(0,0)),
+      transform.subset(math.index(1,0)),
+      transform.subset(math.index(0,1)),
+
+      transform.subset(math.index(1,1)),
+      transform.subset(math.index(0,2)),
+      transform.subset(math.index(1,2))
+    );
+    context.drawImage(sticky, 0, 0);
+    context.restore();
+  };
+
+  var isDragging = false;
+  var scale = 1, x = 0, y = 0;
+  canvas.addEventListener('mousedown', function(event){
+    isDragging = true;
+  });
+  canvas.addEventListener('mouseup', function(event){
+    isDragging = false;
+  });
+  canvas.addEventListener('mousemove', function(event){
+    if(isDragging){
+      var translate = math.matrix([[1, 0, event.movementX], [0, 1, event.movementY], [0, 0, 1]]);
+      transform = math.multiply(translate, transform);
+      draw();
+      event.preventDefault();
+    }
+  });
+  canvas.addEventListener('mouseout', function(event){
+    isDragging = false;
+  });
+  canvas.addEventListener('mousewheel', function(event){
+    var value = 1 + 0.1;
+    if(event.wheelDelta < 0)
+      value = 1 - 0.1;
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    var translate;
+    var scale;
+
+    translate = math.matrix([[1, 0, -x], [0, 1, -y], [0, 0, 1]]);
+    scale = math.matrix([[value, 0, 0], [0, value, 0], [0, 0, 1]]);
+    transform = math.multiply(translate, transform);
+    transform = math.multiply(scale, transform);
+    translate = math.matrix([[1, 0, x], [0, 1, y], [0, 0, 1]]);
+    transform = math.multiply(translate, transform);
+    draw();
+  });
+}]);
