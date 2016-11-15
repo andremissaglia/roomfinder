@@ -1,51 +1,25 @@
 angular.module('roomfinder.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
+  .factory('Mapas', function () {
+    var mapas = [
+      {
+        bloco: 'ICMC-1',
+        andar: 1,
+        src: 'img/mapas/icmc/ICMC1-1.svg',
+        transform: [[1814938.6912103002, -93876.13635862683],
+          [103307.31779825818, 1592357.6624012147]],
+        p0: [-22.00779911982748, -47.895574703232995]
       }
-      return null;
+    ];
+    return {
+      mapas: mapas,
+      converter: function (transform, p0, ponto) {
+        var px = ponto[0] - p0[0];
+        var py = ponto[1] - p0[1];
+        var x = transform[0][0]*px+transform[0][1]*py;
+        var y = transform[1][0]*px+transform[1][1]*py;
+        return [x,y];
+      },
     }
-  };
-})
+  })
 ;
