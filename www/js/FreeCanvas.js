@@ -64,6 +64,8 @@ angular.module('roomfinder.services')
       });
       // touch drag
       var lastX, lastY;
+      var vx, vy;
+      var lastTime = 0;
       canvas.addEventListener('touchstart', function(event){
         isDragging = true;
         var rect = canvas.getBoundingClientRect();
@@ -71,9 +73,29 @@ angular.module('roomfinder.services')
         var y = event.touches[0].clientY - rect.top;
         lastX = x;
         lastY = y;
+        vx = 0;
+        vy = 0;
+        lastTime = new Date();
       });
       canvas.addEventListener('touchend', function(event){
         isDragging = false;
+        var dt = 30;// ~33FPS
+        var k = 300;
+        var t = 0.1;
+        console.log(Math.sqrt(vx*vx+vy*vy));
+        var inercia = function(){
+          if(isDragging){
+            return;
+          }
+          var a = 1/(1+dt/k);
+          move(vx*dt, vy*dt/2);
+          vx *= a;
+          vy *= a;
+          if(vx*vx+vy*vy > t*t){
+            window.setTimeout(inercia, dt);
+          }
+        };
+        window.setTimeout(inercia, dt);
       });
       canvas.addEventListener('touchmove', function(event){
         if(isDragging){
@@ -82,6 +104,12 @@ angular.module('roomfinder.services')
           var y = event.touches[0].clientY - rect.top;
           move(x-lastX, y-lastY);
           event.preventDefault();
+          var currentTime =new Date();
+          if(currentTime > lastTime){
+            vx = (x - lastX) / (currentTime - lastTime);
+            vy = (y - lastY) / (currentTime - lastTime);
+            lastTime = currentTime;
+          }
           lastX = x;
           lastY = y;
         }
@@ -99,7 +127,7 @@ angular.module('roomfinder.services')
         var y = event.clientY - rect.top;
         zoom(x,y,1-event.detail/30);
       });
-      // TODO pinch zoom
+      // pinch zoom
       var mc = new Hammer.Manager(canvas);
       var pinch = new Hammer.Pinch();
       mc.add([pinch]);
