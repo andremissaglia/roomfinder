@@ -12,6 +12,7 @@ angular.module('roomfinder.services')
       resizeCanvas();
 
       var transform = math.matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]]);
+
       var draw = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.save();
@@ -35,7 +36,6 @@ angular.module('roomfinder.services')
       var zoom = function(x,y, amount) {
         var translate;
         var scale;
-        amount += 1;
         translate = math.matrix([[1, 0, -x], [0, 1, -y], [0, 0, 1]]);
         scale = math.matrix([[amount, 0, 0], [0, amount, 0], [0, 0, 1]]);
         transform = math.multiply(translate, transform);
@@ -91,16 +91,26 @@ angular.module('roomfinder.services')
         var rect = canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
-        zoom(x,y,event.wheelDelta/1200);
+        zoom(x,y,1+event.wheelDelta/1200);
       });
       canvas.addEventListener('DOMMouseScroll', function(event){
         var rect = canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
-        zoom(x,y,-event.detail/30);
+        zoom(x,y,1-event.detail/30);
       });
       // TODO pinch zoom
-
+      var mc = new Hammer.Manager(canvas);
+      var pinch = new Hammer.Pinch();
+      mc.add([pinch]);
+      var lastScale = 1;
+      mc.on('pinch', function (event) {
+        zoom(event.center.x,event.center.y,event.scale/lastScale);
+        lastScale = event.scale;
+      });
+      mc.on('pinchend', function (event){
+        lastScale = 1;
+      })
 
       return {
         draw: draw,
