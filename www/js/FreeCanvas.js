@@ -1,7 +1,7 @@
 angular.module('roomfinder.services')
 .factory('FreeCanvas', function(){
   return {
-    setCanvas: function (canvasID, onDraw){
+    setCanvas: function (canvasID, onDraw, afterDraw){
       var canvas = document.getElementById(canvasID);
       var context = canvas.getContext("2d");
       var resizeCanvas = function () {
@@ -27,6 +27,7 @@ angular.module('roomfinder.services')
         );
         onDraw(context);
         context.restore();
+        afterDraw(context);
       };
       var move = function(x,y){
         var translate = math.matrix([[1, 0, x], [0, 1, y], [0, 0, 1]]);
@@ -44,6 +45,13 @@ angular.module('roomfinder.services')
         transform = math.multiply(translate, transform);
         draw();
       };
+      var world2canvas = function(posWorld){
+        var posCanvas = math.multiply(transform, [posWorld[0], posWorld[1], 1]);
+        return [
+          posCanvas.subset(math.index(0)),
+          posCanvas.subset(math.index(1)),
+        ]
+      }
 
       // drag
       var isDragging = false;
@@ -144,6 +152,7 @@ angular.module('roomfinder.services')
         draw: draw,
         move: move,
         zoom: zoom,
+        world2canvas: world2canvas
       }
     }
   };

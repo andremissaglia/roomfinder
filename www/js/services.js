@@ -3,7 +3,7 @@ angular.module('roomfinder.services', [])
   .factory('Mapas', function () {
     var mapas = [
       {
-        bloco: 'ICMC-1',
+        code: 'ICMC-1',
         andar: 1,
         src: 'img/mapas/icmc/ICMC1-1.svg',
         transform: [[1814938.6912103002, -93876.13635862683],
@@ -21,5 +21,19 @@ angular.module('roomfinder.services', [])
         return [x,y];
       },
     }
+  })
+  .factory('Rooms', function () {
+    var rooms = [
+      {
+        code: '1-105',
+        maps: ['ICMC-1'],
+        pos: [ -22.007553912662722, -47.89530801170035 ]
+      }
+    ];
+    return {
+      get: function (i) {
+        return rooms[i];
+      }
+    };
   })
 ;

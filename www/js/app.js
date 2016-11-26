@@ -1,7 +1,7 @@
 angular.module('roomfinder', [
   'ionic',
   'roomfinder.controllers',
-  'roomfinder.services'
+  'roomfinder.services',
 ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
