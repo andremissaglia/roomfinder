@@ -48,4 +48,4 @@ var map2gps = function(map_pos){
 	return numeric.add(pos, gp0);
 }
 console.log({transform:M, p0: gp0});
-console.log(map2gps([646,409]));
+console.log(map2gps([812,160]));
