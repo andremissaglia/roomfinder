@@ -21,4 +21,7 @@ angular.module('roomfinder.controllers', [])
   var point = new Image();
   point.src = 'img/place.svg'
   point.onload = canvas.draw;
+}])
+.controller('SearchCtrl', ['$scope', function($scope){
+  
 }]);
