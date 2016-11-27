@@ -1,7 +1,7 @@
 require('numeric')
-var a = {gps:{x:-22.007716,y:-47.895246},mapa:{x:120,y:532}};
-var b = {gps:{x:-22.007725,y:-47.895420},mapa:{x:120,y:254}};
-var c = {gps:{x:-22.007269,y:-47.895275},mapa:{x:934,y:532}};
+var a = {gps:{x:-22.007716,y:-47.895246},mapa:{x:127,y:567}};
+var b = {gps:{x:-22.007725,y:-47.895420},mapa:{x:128,y:272}};
+var c = {gps:{x:-22.007269,y:-47.895275},mapa:{x:996,y:567}};
 
 //vetores auxiliares do mapa
 var mva = [b.mapa.x-a.mapa.x, b.mapa.y-a.mapa.y];
@@ -47,5 +47,5 @@ var map2gps = function(map_pos){
 	var pos = numeric.dot(Mp, map_pos);
 	return numeric.add(pos, gp0);
 }
-//console.log({transform:M, p0: gp0});
-console.log(map2gps([420, 450]));
+console.log({transform:M, p0: gp0});
+console.log(map2gps([425,474]));
