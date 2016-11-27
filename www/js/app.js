@@ -21,68 +21,31 @@ angular.module('roomfinder', [
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-    url: '/chats',
-    views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-        controller: 'ChatsCtrl'
-      }
-    }
-  })
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
-    views: {
-      'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  })
-
-  .state('map', {
-    url: '/map',
+  .state('roomfinder', {
+    url: '/roomfinder',
     abstract:true,
     templateUrl:'templates/map.html'
   })
 
-  .state('map.content', {
-    url: '/content',
+  .state('roomfinder.map', {
+    url: '/map/{code}',
+    cache: false,
     views: {
-      'map-content': {
+      'content': {
         templateUrl: 'templates/map-map.html',
+      }
+    }
+  })
+  .state('roomfinder.search', {
+    url: '/search',
+    views: {
+      'content': {
+        templateUrl: 'templates/search.html',
       }
     }
   });
 
 
-  $urlRouterProvider.otherwise('/map/content');
+  $urlRouterProvider.otherwise('/roomfinder/search');
 
 });
