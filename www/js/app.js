@@ -29,6 +29,7 @@ angular.module('roomfinder', [
 
   .state('roomfinder.map', {
     url: '/map/{code}',
+    cache: false,
     views: {
       'content': {
         templateUrl: 'templates/map-map.html',
