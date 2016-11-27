@@ -1,8 +1,8 @@
 angular.module('roomfinder.controllers', [])
 
 .controller('MapCtrl', ['$scope', 'FreeCanvas', 'Mapas', 'Rooms', function($scope, FreeCanvas, Mapas, Rooms) {
-  var mapa = Mapas.mapas[3];
-  var gps = Rooms.get(35).pos;
+  var mapa = Mapas.mapas[6];
+  var gps = Rooms.get(128).pos;
   var posOptions = {timeout: 10000, enableHighAccuracy: true};
   var canvas =  FreeCanvas.setCanvas('canvas', function (context) {
     context.drawImage(sticky, 0, 0);
