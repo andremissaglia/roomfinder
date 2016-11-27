@@ -39,6 +39,15 @@ angular.module('roomfinder.services', [])
         var y = transform[1][0] * px + transform[1][1] * py;
         return [x, y];
       },
+      get: function(code){
+      	var result = null;
+        mapas.forEach(function(entry){
+          if(entry.code==code){
+            result = entry;
+          }
+        });
+        return result;
+      }
     }
   })
   .factory('Rooms', function () {
@@ -192,8 +201,26 @@ angular.module('roomfinder.services', [])
       }
     ];
     return {
-      get: function (i) {
-        return rooms[i];
+      get: function (code) {
+        var result = null;
+        rooms.forEach(function(entry){
+	  if(entry.code==code){
+	    result = entry;
+          }
+        });
+        return result;
+      },
+      find: function(term){
+        var results = [];
+        term = term.replace('-','');
+        rooms.forEach(function(entry){
+          cmp = entry.code.replace('-','');
+          if(cmp.indexOf(term)>-1){
+            results.push(entry);
+          }
+        });
+        return results;
+
       }
     };
   })

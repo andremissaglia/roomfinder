@@ -38,11 +38,14 @@
     <script src="js/FreeCanvas.js"></script>
   </head>
   <body ng-app="roomfinder">
-    <ion-side-menus>
+    <ion-side-menus enable-menu-with-back-views="true">
       <!-- Left menu -->
       <ion-side-menu side="left">
         <div class="list">
-          <a href="#/map/content" class="item" menu-close="menu-close">Mapa</a>
+          <a ui-sref="roomfinder.search" class="item item-icon-left" menu-close="menu-close">
+            <i class="icon ion-search"></i>
+            Procurar Sala
+          </a>
         </div>
       </ion-side-menu>
 

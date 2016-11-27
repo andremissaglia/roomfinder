@@ -1,8 +1,9 @@
 angular.module('roomfinder.controllers', [])
 
-.controller('MapCtrl', ['$scope', 'FreeCanvas', 'Mapas', 'Rooms', function($scope, FreeCanvas, Mapas, Rooms) {
-  var mapa = Mapas.mapas[1];
-  var gps = Rooms.get(27).pos;
+.controller('MapCtrl', ['$scope', '$stateParams', 'FreeCanvas', 'Mapas', 'Rooms', function($scope, $stateParams, FreeCanvas, Mapas, Rooms) {
+  var room = Rooms.get($stateParams.code);
+  var mapa = Mapas.get(room.maps[0]);
+  var gps = room.pos;
   var posOptions = {timeout: 10000, enableHighAccuracy: true};
   var canvas =  FreeCanvas.setCanvas('canvas', function (context) {
     context.drawImage(sticky, 0, 0);
@@ -22,6 +23,10 @@ angular.module('roomfinder.controllers', [])
   point.src = 'img/place.svg'
   point.onload = canvas.draw;
 }])
-.controller('SearchCtrl', ['$scope', function($scope){
-  
+.controller('SearchCtrl', ['$scope', 'Rooms', function($scope, Rooms){
+  $scope.searchtext = '';
+  $scope.results = [];
+  $scope.$watch('searchtext',function(){
+    $scope.results = Rooms.find($scope.searchtext);
+  });	 
 }]);
