@@ -66,16 +66,24 @@ angular.module('roomfinder.services', [])
         p0: [-22.007103606478264, -47.89459782037345]
       }
     ];
+    var blocos = {};
+    mapas.forEach(function (mapa) {
+      if(!blocos[mapa.bloco]){
+        blocos[mapa.bloco] = {};
+      }
+      blocos[mapa.bloco][mapa.andar] = mapa;
+    });
+
     return {
       mapas: mapas,
-      converter: function (transform, p0, ponto) {
-        var px = ponto[0] - p0[0];
-        var py = ponto[1] - p0[1];
-        var x = transform[0][0] * px + transform[0][1] * py;
-        var y = transform[1][0] * px + transform[1][1] * py;
+      gps2map: function (mapa, ponto) {
+        var px = ponto[0] - mapa.p0[0];
+        var py = ponto[1] - mapa.p0[1];
+        var x = mapa.transform[0][0] * px + mapa.transform[0][1] * py;
+        var y = mapa.transform[1][0] * px + mapa.transform[1][1] * py;
         return [x, y];
       },
-      get: function(code){
+      getByCode: function(code){
       	var result = null;
         mapas.forEach(function(entry){
           if(entry.code==code){
@@ -83,7 +91,11 @@ angular.module('roomfinder.services', [])
           }
         });
         return result;
-      }
+      },
+      getByLocation:function (bloco, andar) {
+        if(!blocos[bloco]) return null;
+        return blocos[bloco][andar];
+      },
     }
   })
   .factory('Rooms', function () {
@@ -163,7 +175,7 @@ angular.module('roomfinder.services', [])
         maps: ['ICMC1-1'],
         pos: [ -22.007440724117068, -47.89535677319943 ]
       }, //FIM - ICMC BLOCO 1 ANDAR 1 - 0 ~ 14 tuplas
-         //INICIO - ICMC BLOCO 1 ANDAR 0 
+         //INICIO - ICMC BLOCO 1 ANDAR 0
         {
         code: '1-000',
         maps: ['ICMC1-0'],
@@ -229,7 +241,7 @@ angular.module('roomfinder.services', [])
         maps: ['ICMC1-0'],
         pos: [ -22.007454130362323, -47.89535649525285  ]
       },//FIM - ICMC BLOCO 1 ANDAR 0 - 15 ~ 27
-        //INICIO - ICMC BLOCO 5 ANDAR 0 
+        //INICIO - ICMC BLOCO 5 ANDAR 0
       {
         code: '5-001',
         maps: ['ICMC5-0'],
@@ -270,7 +282,7 @@ angular.module('roomfinder.services', [])
         code: '5-104',
         maps: ['ICMC5-1'],
         pos: [  -22.006929171839975, -47.895487106402626   ]
-      }, //FIM - ICMC BLOCO 5 ANDAR 1 - 29 ~ 35  
+      }, //FIM - ICMC BLOCO 5 ANDAR 1 - 29 ~ 35
          //INICIO - ICMC BLOCO 4 ANDAR 0
       {
         code: '4-000',
@@ -513,7 +525,7 @@ angular.module('roomfinder.services', [])
         maps: ['ICMC4-1'],
         pos: [ -22.007340647476695, -47.89429630637815 ]
       },//FIM - ICMC BLOCO 4 ANDAR 1 - 48 ~ 83
-        //INICIO - ICMC BLOCO 4 ANDAR 2 
+        //INICIO - ICMC BLOCO 4 ANDAR 2
       {
         code: '4-201',
         maps: ['ICMC4-2'],

@@ -74,7 +74,18 @@ angular.module('roomfinder.services')
           posCanvas.subset(math.index(1))
         ]
       };
+      var canvas2world = function(posCanvas){
+        var posWorld = math.multiply(math.inv(transform), [posCanvas[0], posCanvas[1], 1]);
 
+        return [
+          posWorld.subset(math.index(0)),
+          posWorld.subset(math.index(1))
+        ];
+      };
+      var centerAt = function(pos){
+        var center = canvas2world([canvas.width/2, canvas.height/2]);
+        move(center[0] - pos[0], center[1] - pos[1]);
+      };
       // drag
       var isDragging = false;
       canvas.addEventListener('click', function(event){
@@ -183,9 +194,11 @@ angular.module('roomfinder.services')
         move: move,
         zoom: zoom,
         world2canvas: world2canvas,
+        canvas2world: canvas2world,
         addButton: addButton,
         removeButton: removeButton,
-        getBounds: getBounds
+        getBounds: getBounds,
+        centerAt: centerAt,
       }
     }
   };
