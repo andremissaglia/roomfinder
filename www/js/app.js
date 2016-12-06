@@ -21,31 +21,18 @@ angular.module('roomfinder', [
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('roomfinder', {
-    url: '/roomfinder',
-    abstract:true,
-    templateUrl:'templates/map.html'
-  })
 
-  .state('roomfinder.map', {
+  .state('map', {
     url: '/map/{code}',
     cache: false,
-    views: {
-      'content': {
-        templateUrl: 'templates/map-map.html',
-      }
-    }
+    templateUrl: 'templates/map-map.html',
   })
-  .state('roomfinder.search', {
+  .state('search', {
     url: '/search',
-    views: {
-      'content': {
-        templateUrl: 'templates/search.html',
-      }
-    }
+    templateUrl: 'templates/search.html',
   });
 
 
-  $urlRouterProvider.otherwise('/roomfinder/search');
+  $urlRouterProvider.otherwise('/search');
 
 });

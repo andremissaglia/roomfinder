@@ -148,7 +148,8 @@ angular.module('roomfinder.controllers', [])
 .controller('SearchCtrl', ['$scope', 'Rooms', function($scope, Rooms){
   $scope.searchtext = '';
   $scope.results = [];
-  $scope.$watch('searchtext',function(){
+  $scope.update = function(s){
     $scope.results = Rooms.find($scope.searchtext);
-  });
+  };
+  $scope.update();
 }]);

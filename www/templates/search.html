@@ -1,16 +1,21 @@
-<ion-view view-title="search" ng-controller="SearchCtrl">
+<ion-header-bar class="bar bar-header">
+  <button class="button icon ion-navicon" menu-toggle="left"></button>
+  <h1 class="title">Room Finder</h1>
+</ion-header-bar>
 <ion-content>
-<div class="list list-inset">
-  <label class="item item-input">
-    <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search" ng-model="searchtext">
-  </label>
-</div>
-<ion-list>
-  <a ng-repeat="result in results" class="item item-icon-left" ui-sref="roomfinder.map({code:result.code})">
-    <i class="icon ion-ios-location"></i>
-    {{result.code}}
-  </a>
-</ion-list>
+  <div ng-controller="SearchCtrl">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="searchtext" ng-change="update(searchtext)">
+      </label>
+    </div>
+    <ion-list>
+      <a ng-repeat="result in results" class="item item-icon-left" ui-sref="map({code:result.code})">
+        <i class="icon ion-ios-location"></i>
+        {{result.code}}
+      </a>
+    </ion-list>
+  </div>
+
 </ion-content>
-</ion-view>
