@@ -117,7 +117,7 @@ angular.module('roomfinder.services', [])
         src: 'img/mapas/icmc/ICMC3-1.svg',
         transform: [[0, 3217252.4332838086],
           [ -2729729.7410774487, 17442.37223203641 ] ],
-        p0: [ -22.007291214203548, -47.89458402780536 ] 
+        p0: [ -22.007291214203548, -47.89458402780536 ]
       },
       {
         code: 'campus1',
@@ -825,7 +825,7 @@ angular.module('roomfinder.services', [])
       {
         code: '2-001',
         maps: ['ICMC2-0'],
-        pos: [ -22.00760711638041, -47.894895852414045 ] 
+        pos: [ -22.00760711638041, -47.894895852414045 ]
       },
       //FIM - ICMC BLOCO 2 (BIBLIOTECA) 0 29 ~ 30
       //INICIO - ICMC BLOCO 2 (BIBLIOTECA) 1
@@ -1154,17 +1154,17 @@ angular.module('roomfinder.services', [])
       get: function (code) {
         var result = null;
         rooms.forEach(function(entry){
-	  if(entry.code==code){
-	    result = entry;
+          if (entry.code == code) {
+            result = entry;
           }
         });
         return result;
       },
       find: function(term){
         var results = [];
-        term = term.replace('-','');
+        term = term.replace('-','').toLowerCase();
         rooms.forEach(function(entry){
-          cmp = entry.code.replace('-','');
+          cmp = entry.code.replace('-','').toLowerCase();
           if(cmp.indexOf(term)>-1){
             results.push(entry);
           }
