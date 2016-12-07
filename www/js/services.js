@@ -67,7 +67,7 @@ angular.module('roomfinder.services', [])
       },
       {
         code: 'ICMC2-0',
-        andar: 1,
+        andar: 0,
         bloco: 'ICMC2',
         src: 'img/mapas/icmc/ICMC2-T.svg',
         transform: [[ -214347.80819513657, -2018441.6226043936 ],
@@ -104,8 +104,8 @@ angular.module('roomfinder.services', [])
       {
 	code: 'ICMC3-0',
 	andar: 0,
-	bloco, 'ICMC3',
-	src: 'img/mapa/icmc/ICMC3-T.svg',
+	bloco: 'ICMC3',
+	src: 'img/mapas/icmc/ICMC3-T.svg',
 	transform: [[ -62964.63682226217, 1684303.8940674686 ],
 	 [ -1682811.4459484373, 15206.135952631372 ] ],
 	p0: [ -22.00732936223415, -47.89467802798649 ]
@@ -796,10 +796,6 @@ angular.module('roomfinder.services', [])
         code: '4-223',
         maps: ['ICMC4-2'],
         pos:  [ -22.00726016225371, -47.894270614392866 ]
-      }//FIM - ICMC BLOCO 4 ANDAR 2 - 84 ~ 128
-
-    ];
-        pos: [ -22.007454130362323, -47.89535649525285  ]
       },
       //INICIO - ICMC BLOCO 2 (BIBLIOTECA)
       {
@@ -984,25 +980,25 @@ angular.module('roomfinder.services', [])
         pos: [-22.007399606438074,-47.89429711270067]
       },
       {
-        code: '3-006',
+        code: '3-006SMA ',
         maps: ['ICMC3-0'],
-        pos: [SMA -22.007636584256264,-47]
-      },.894480524508566
+        pos: [-22.007636584256264,-47.894480524508566]
+      },
       {
-        code: '3-006',
+        code: '3-006SSC',
         maps: ['ICMC3-0'],
-        pos: [SSC-22.007643740319015,-47]
-      },.89454906948985
+        pos: [-22.007643740319015,-47.89454906948985]
+      },
       {
-        code: '3-006',
+        code: '3-006SCC',
         maps: ['ICMC3-0'],
-        pos: [SCC-22.007650825351778,-47]
-      },.894543990897134
+        pos: [-22.007650825351778,-47.894543990897134]
+      },
       {
-        code: '3-006',
+        code: '3-006SME',
         maps: ['ICMC3-0'],
-        pos: [SME-22.007650696550275,-47]
-      },.89452973687206
+        pos: [-22.007650696550275,-47.89452973687206]
+      },
       {
         code: '3-008',
         maps: ['ICMC3-0'],
