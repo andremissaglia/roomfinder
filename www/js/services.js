@@ -130,7 +130,7 @@ angular.module('roomfinder.services', [])
         transform: [[ -62964.63682226217, 1684303.8940674686 ],
          [ -1682811.4459484373, 15206.135952631372 ] ],
         p0: [ -22.00732936223415, -47.89467802798649 ]
-      },      
+      },
       {
         code: 'ICMC3-1',
         andar: 1,
@@ -145,6 +145,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC3-1N',
         andar: 1,
         bloco: 'ICMC3N',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC3-1N.svg',
         transform: [ [ 2944134.0127535816, -150613.7294163927 ],
           [ -2918340.313332292, 4660.924314997362 ] ],
