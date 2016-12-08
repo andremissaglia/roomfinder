@@ -179,18 +179,18 @@ angular.module('roomfinder.controllers', [])
 .controller('SearchCtrl', ['$scope', 'Rooms', function($scope, Rooms){
   $scope.searchtext = '';
   $scope.results = [];
-  $scope.update = function(){
-    $scope.results = Rooms.find($scope.searchtext);
+  $scope.update = function(term){
+    $scope.results = Rooms.find(term);
   };
-  $scope.update();
+  $scope.update('');
   $scope.iconClass = 'ion-ios-location';
 }])
 .controller('TeacherCtrl', ['$scope', 'Teachers', function($scope, Teachers){
   $scope.searchtext = '';
   $scope.results = [];
-  $scope.update = function(){
-    $scope.results = Teachers.find($scope.searchtext);
+  $scope.update = function(term){
+    $scope.results = Teachers.find(term);
   };
-  $scope.update();
-  $scope.iconClass = 'ion-ios-location';
+  $scope.update('');
+  $scope.iconClass = 'ion-ios-person';
 }]);

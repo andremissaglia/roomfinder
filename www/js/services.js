@@ -1306,23 +1306,218 @@ angular.module('roomfinder.services', [])
       }
     };
   })
-  .factory('Teachers', function () {
+  .factory('Teachers', ['RemoveAccentuation', function (RemoveAccentuation) {
     var teachers = [
+      // INICIO 4-1XX
       {
-        name: 'Thiago Alexandre Salgueiro Pardo',
-        code: ''
+        name: 'Marcio Fuzeto Gameiro',
+        code: '4-101'
       },
       {
-        name: '',
-        code: ''
-      }
+        name: 'Thiago Alexandre Salgueiro Pardo',
+        code: '4-102'
+      },
+      {
+        name: 'Marcio Fuzeto Gameiro',
+        code: '4-103'
+      },
+      {
+        name: 'Jó Ueyama',
+        code: '4-104'
+      },
+      {
+        name: 'Onofre Trindade Júnior',
+        code: '4-106'
+      },
+      {
+        name: 'Francisco Aparecido Rodrigues',
+        code: '4-107'
+      },
+      {
+        name: 'Alexandre Cláudio Botazzo Delbem',
+        code: '4-108'
+      },
+      {
+        name: 'Gustavo Enrique de Almeida Prado Alves Batista',
+        code: '4-109'
+      },
+      {
+        name: 'Ricardo Sandes Ehlers',
+        code: '4-110'
+      },
+      {
+        name: 'Adenilso da Silva Simão',
+        code: '4-122'
+      },
+      {
+        name: 'Sérgio Henrique Monari Soares',
+        code: '4-120'
+      },
+      {
+        name: 'Vicente Garibay Cancho',
+        code: '4-118'
+      },
+      {
+        name: 'Daniel Levcovitz',
+        code: '4-116'
+      },
+      {
+        name: 'Fernando Santos Osório',
+        code: '4-125'
+      },
+      {
+        name: 'Diego Raphael Amancio',
+        code: '4-126'
+      },
+      {
+        name: 'João Luís Garcia Rosa',
+        code: '4-127'
+      },
+      {
+        name: 'Ellen Francine Barbosa',
+        code: '4-128'
+      },
+      {
+        name: 'Dorival Leão Pinto Júnior',
+        code: '4-130'
+      },
+      {
+        name: 'Reiko Aoki',
+        code: '4-131'
+      },
+      {
+        name: 'Pedro Paulo de Magalhães Rios',
+        code: '4-132'
+      },
+      {
+        name: 'Cristina Dutra de Aguiar Ciferri',
+        code: '4-133'
+      },
+      {
+        name: 'Rosana Terezinha Vaccare Braga',
+        code: '4-134'
+      },
+      {
+        name: 'João Porto de Albuquerque Pereira',
+        code: '4-135'
+      },
+      {
+        name: 'Seiji Isotani',
+        code: '4-135'
+      },
+      {
+        name: 'Paulo Sérgio Lopes de Souza',
+        code: '4-136'
+      },
+      {
+        name: 'Everaldo de Mello Bonotto',
+        code: '4-137'
+      },
+      {
+        name: 'Simone do Rocio Senger de Souza',
+        code: '4-138'
+      },
+      {
+        name: 'Francisco José Monaco',
+        code: '4-139'
+      },
+      {
+        name: 'Denise de Mattos',
+        code: '4-140'
+      },
+      {
+        name: 'Evandro Raimundo da Silva',
+        code: '4-141'
+      },
+      {
+        name: 'Irene Ignazia Onnis',
+        code: '4-142'
+      },
+      // FIM 4-1XX
+      // INICIO 4-2XX
+
+      {
+        name: 'Maria das Graças Volpi Nunes',
+        code: '4-201'
+      },
+      {
+        name: 'Cláudio Fabiano Motta Toledo',
+        code: '4-202'
+      },
+      {
+        name: 'Elisa Yumi Nakagawa',
+        code: '4-203'
+      },
+      {
+        name: 'Eduardo Tengan',
+        code: '4-204'
+      },
+      {
+        name: 'Maria Cristina Ferreira de Oliveira',
+        code: '4-205'
+      },
+      {
+        name: 'Rosane Minghim',
+        code: '4-206'
+      },
+      {
+        name: 'Sandra Maria Aluísio',
+        code: '4-208'
+      },
+      {
+        name: 'Elias Salomão Helou Neto',
+        code: '4-209'
+      },
+      {
+        name: 'Eugênio Tommaso Massa',
+        code: '4-210'
+      },
+      {
+        name: 'Mariana Cúri',
+        code: '4-211'
+      },
+      {
+        name: 'Farid Tari',
+        code: '4-212'
+      },
+      {
+        name: 'Valdir Antonio Menegatto',
+        code: '4-213'
+      },
+      {
+        name: 'Miriam Garcia Manoel',
+        code: '4-215'
+      },
+      {
+        name: 'Sérgio Luís Zani',
+        code: '4-216'
+      },
+      {
+        name: 'Edna Maura Zuffi',
+        code: '4-217'
+      },
+      {
+        name: 'José Eduardo Prado Pires de Campos',
+        code: '4-218'
+      },
+      {
+        name: 'Gustavo Carlos Buscaglia',
+        code: '4-219'
+      },
+      {
+        name: 'Renata Cristina Geromel Meneghetti',
+        code: '4-220'
+      },
     ];
+    teachers.forEach(function(entry){
+      entry.nameClean = RemoveAccentuation(entry.name);
+    });
 
     return {
       get: function(name) {
         var result = null;
         teachers.forEach(function(entry) {
-          if(entry.name = name)
+          if(entry.name == name)
             result = entry;
         });
         return result;
@@ -1330,22 +1525,23 @@ angular.module('roomfinder.services', [])
       find: function(term) {
         var results = [];
         term = term.toLowerCase();
+        term = RemoveAccentuation(term);
         var terms = term.split(' ');
         teachers.forEach(function(entry) {
-          var name = entry.name.toLowerCase();
+          var name = entry.nameClean.toLowerCase();
           var foundAll = true;
           var found = false;
           terms.forEach(function(keyword) {
-            if(name.indexOf(keyword) >= -1)
+            if(name.indexOf(keyword) > -1)
               found = true;
             else
               foundAll = false;
           });
           if(found && foundAll)
-            result[entry.name] = entry;
+            results.push(entry);
         });
         return results;
       }
     };
-  })
+  }])
 ;
