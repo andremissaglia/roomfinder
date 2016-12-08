@@ -1,10 +1,23 @@
 angular.module('roomfinder.controllers', [])
 
-.controller('MapCtrl', ['$scope', '$stateParams', 'FreeCanvas', 'Mapas', 'Rooms', function($scope, $stateParams, FreeCanvas, Mapas, Rooms) {
+.controller('MapCtrl', ['$scope', '$stateParams', 'FreeCanvas', 'Mapas', 'Rooms', '$cordovaGeolocation', function($scope, $stateParams, FreeCanvas, Mapas, Rooms, $cordovaGeolocation) {
+  $cordovaGeolocation.watchPosition({enableHighAccuracy:true})
+    .then(
+      null,
+      function (err) {
+
+      },
+      function(position){
+      userPosition = [position.coords.latitude, position.coords.longitude];
+      canvas.draw();
+  });
+
+  console.log();
   var room = Rooms.get($stateParams.code);
   var roomMap = Mapas.getByCode(room.maps[0]);
   var mapa;
-  var gps = room.pos;
+  var roomPosition = room.pos;
+  var userPosition =  null;
   var magOffset = {
     x: 100,
     y: 20,
@@ -99,10 +112,28 @@ angular.module('roomfinder.controllers', [])
     if(canvas == undefined)
       return;
     if(mapa.andar == roomMap.andar){
-      var pos = Mapas.gps2map(mapa, gps);
+      var pos = Mapas.gps2map(mapa, roomPosition);
       pos = canvas.world2canvas(pos);
       context.drawImage(point, pos[0]-14, pos[1]-40);
+    }
+    if(userPosition != null){
+      var pos = Mapas.gps2map(mapa, userPosition);
+      pos = canvas.world2canvas(pos);
+      context.beginPath();
+      var gradient = context.createRadialGradient(pos[0], pos[1], 8, pos[0], pos[1], 40);
+      gradient.addColorStop(0, '#ceddf0');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      context.arc(pos[0], pos[1], 40, 2*Math.PI, false);
+      context.fillStyle = gradient;
+      context.fill();
 
+      context.beginPath();
+      context.arc(pos[0], pos[1], 8, 2*Math.PI, false);
+      context.fillStyle = '#4285f4';
+      context.fill();
+      context.lineWidth = 2;
+      context.strokeStyle = 'white';
+      context.stroke();
     }
 
     var bounds = canvas.getBounds();

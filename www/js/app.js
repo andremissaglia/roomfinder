@@ -2,6 +2,7 @@ angular.module('roomfinder', [
   'ionic',
   'roomfinder.controllers',
   'roomfinder.services',
+  'ngCordova',
 ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
