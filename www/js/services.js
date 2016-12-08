@@ -1174,7 +1174,7 @@ angular.module('roomfinder.services', [])
       }
     };
   })
-  .factory('Rooms', function () {
+  .factory('Teachers', function () {
     var teachers = [
       {
         name: '',
@@ -1190,10 +1190,26 @@ angular.module('roomfinder.services', [])
 
     return {
       get: function(name) {
-
+        var result = null;
+        teachers.forEach(function(entry) {
+          if(entry.name = name)
+            result = entry;
+        });
+        return result;
       },
-      find: function(string) {
-
+      find: function(term) {
+        var results = [];
+        term = term.toLowerCase();
+        var terms = term.split(' ');
+        teachers.forEach(function(entry) {
+          var name = entry.name.toLowerCase();
+          terms.forEach(function(keyword) {
+            if(name.indexOf(keyword) >= -1) {
+              result[entry.name] = entry;
+            }
+          });
+        });
+        return results;
       }
     };
   })
