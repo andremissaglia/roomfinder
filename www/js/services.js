@@ -1332,11 +1332,17 @@ angular.module('roomfinder.services', [])
         var terms = term.split(' ');
         teachers.forEach(function(entry) {
           var name = entry.name.toLowerCase();
+          var foundAll = true;
+          var found = false;
           terms.forEach(function(keyword) {
-            if(name.indexOf(keyword) >= -1) {
-              result[entry.name] = entry;
-            }
+            if(name.indexOf(keyword) >= -1)
+              found = true;
+            else
+              foundAll = false;
           });
+          if(found && foundAll)
+            result[entry.name] = entry;
+
         });
         return results;
       }
