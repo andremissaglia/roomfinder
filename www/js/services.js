@@ -6,6 +6,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC1-1',
         andar: 1,
         bloco: 'ICMC1',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC1-1.svg',
         transform: [[1937198.066467265, -105947.02265861645],
           [109624.67273438071, 1689732.0466947213]],
@@ -15,6 +16,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC1-0',
         andar: 0,
         bloco: 'ICMC1',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC1-T.svg',
         transform: [[1937198.066467265, -105947.02265861645],
           [109624.67273438071, 1689732.0466947213]],
@@ -24,6 +26,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC5-0',
         andar: 0,
         bloco: 'ICMC5',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC5-T.svg',
         transform: [[2156265.3249765597, -202808.48097665157],
           [55678.866973500924, 1720799.5382485413]],
@@ -33,6 +36,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC5-1',
         andar: 1,
         bloco: 'ICMC5',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC5-1.svg',
         transform: [[2156265.3249765597, -202808.48097665157],
           [55678.866973500924, 1720799.5382485413]],
@@ -42,6 +46,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC4-0',
         andar: 0,
         bloco: 'ICMC4',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC4-T.svg',
         transform: [[-58927.41689472433, 1897198.124093346],
           [-1994299.9341986594, -19006.90403725006]],
@@ -51,6 +56,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC4-1',
         andar: 1,
         bloco: 'ICMC4',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC4-1.svg',
         transform: [[-58927.41689472433, 1897198.124093346],
           [-1994299.9341986594, -19006.90403725006]],
@@ -60,6 +66,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC4-2',
         andar: 2,
         bloco: 'ICMC4',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC4-2.svg',
         transform: [[-58927.41689472433, 1897198.124093346],
           [-1994299.9341986594, -19006.90403725006]],
@@ -69,6 +76,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC2-0',
         andar: 0,
         bloco: 'ICMC2',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC2-T.svg',
         transform: [[ -214347.80819513657, -2018441.6226043936 ],
          [ 2391561.2754328544, -62798.12023194608 ] ],
@@ -78,6 +86,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC2-1',
         andar: 1,
         bloco: 'ICMC2',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC2-1.svg',
 	      transform: [[ -214347.80819513657, -2018441.6226043936 ],
 	       [ 2391561.2754328544, -62798.12023194608 ] ],
@@ -87,6 +96,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC2-2',
         andar: 2,
         bloco: 'ICMC2',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC2-2.svg',
         transform: [[ -214347.80819513657, -2018441.6226043936 ],
          [ 2391561.2754328544, -62798.12023194608 ] ],
@@ -96,6 +106,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC2-3',
         andar: 3,
         bloco: 'ICMC2',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC2-3.svg',
         transform: [[ -214347.80819513657, -2018441.6226043936 ],
          [ 2391561.2754328544, -62798.12023194608 ] ],
@@ -105,15 +116,26 @@ angular.module('roomfinder.services', [])
       	code: 'ICMC3-0',
       	andar: 0,
       	bloco: 'ICMC3',
+        out: 'campus1',
       	src: 'img/mapas/icmc/ICMC3-T.svg',
       	transform: [[ -62964.63682226217, 1684303.8940674686 ],
       	 [ -1682811.4459484373, 15206.135952631372 ] ],
       	p0: [ -22.00732936223415, -47.89467802798649 ]
       },
       {
+        code: 'ICMC3-0',
+        andar: 0,
+        bloco: 'ICMC3N',
+        src: 'img/mapas/icmc/ICMC3-T.svg',
+        transform: [[ -62964.63682226217, 1684303.8940674686 ],
+         [ -1682811.4459484373, 15206.135952631372 ] ],
+        p0: [ -22.00732936223415, -47.89467802798649 ]
+      },
+      {
         code: 'ICMC3-1',
         andar: 1,
         bloco: 'ICMC3',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC3-1.svg',
         transform: [[0, 3217252.4332838086],
           [ -2729729.7410774487, 17442.37223203641 ] ],
@@ -122,8 +144,18 @@ angular.module('roomfinder.services', [])
       {
         code: 'ICMC3-1N',
         andar: 1,
-        bloco: 'ICMC3',
+        bloco: 'ICMC3N',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC3-1N.svg',
+        transform: [ [ 2944134.0127535816, -150613.7294163927 ],
+          [ -2918340.313332292, 4660.924314997362 ] ],
+        p0: [ -22.007455792202332, -47.8914106143384 ]
+      },
+      {
+        code: 'ICMC3-2N',
+        andar: 2,
+        bloco: 'ICMC3N',
+        src: 'img/mapas/icmc/ICMC3-2N.svg',
         transform: [ [ 2944134.0127535816, -150613.7294163927 ],
           [ -2918340.313332292, 4660.924314997362 ] ],
         p0: [ -22.007455792202332, -47.8914106143384 ]
@@ -1262,6 +1294,111 @@ angular.module('roomfinder.services', [])
         code: '3-128',
         maps: ['ICMC3-1N'],
         pos: [ -22.007609222124696, -47.90122856558849 ]
+      },
+      {
+        code: '3-229',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00760997577734, -47.89633670646996 ]
+      },
+      {
+        code: '3-230',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007610282258863, -47.896528603468944 ]
+      },
+      {
+        code: '3-231',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007611376835737, -47.89721394989389 ]
+      },
+      {
+        code: '3-232',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007611716154567, -47.89742640728562 ]
+      },
+      {
+        code: '3-233',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007641084451787, -47.89800712594308 ]
+      },
+      {
+        code: '3-234',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00761211427115, -47.89810477909787 ]
+      },
+      {
+        code: '3-235',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007630175017194, -47.89847110198846 ]
+      },
+      {
+        code: '3-236',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00761211083272, -47.89831717591538 ]
+      },
+      {
+        code: '3-237',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007630503390256, -47.898676705915946 ]
+      },
+      {
+        code: '3-238',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007614620221712, -47.899030178494215 ]
+      },
+      {
+        code: '3-239',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00763159796713, -47.89936205234089 ]
+      },
+      {
+        code: '3-240',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007614241188715, -47.89922195434475 ]
+      },
+      {
+        code: '3-241',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007631572637163, -47.8995607422299 ]
+      },
+      {
+        code: '3-242',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007615368602895, -47.899927861162446 ]
+      },
+      {
+        code: '3-243',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00763376116043, -47.90028739116301 ]
+      },
+      {
+        code: '3-244',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00761533232716, -47.90011969758721 ]
+      },
+      {
+        code: '3-245',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007633371181665, -47.9004723135493 ]
+      },
+      {
+        code: '3-246',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007616073201003, -47.90079812997368 ]
+      },
+      {
+        code: '3-247',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007633780244017, -47.9011575388258 ]
+      },
+      {
+        code: '3-248',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.007616390628296, -47.900996880436914 ]
+      },
+      {
+        code: '3-249',
+        maps: ['ICMC3-2N'],
+        pos: [ -22.00763549059189, -47.901370238514424 ]
       },
       {
         code: '24hC1',

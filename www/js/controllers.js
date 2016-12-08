@@ -1,6 +1,24 @@
 angular.module('roomfinder.controllers', [])
 
 .controller('MapCtrl', ['$scope', '$stateParams', 'FreeCanvas', 'Mapas', 'Rooms', '$cordovaGeolocation', function($scope, $stateParams, FreeCanvas, Mapas, Rooms, $cordovaGeolocation) {
+  var button = function(image, action){
+    var btn = {
+      min: {
+        x: 0,
+        y: 0
+      },
+      max: {
+        x: 0,
+        y: 0
+      },
+      width: 64,
+      height: 64,
+      onClick: action
+    };
+    btn.img = new Image();
+    btn.img.src = image;
+    return btn;
+  };
   $cordovaGeolocation.watchPosition({enableHighAccuracy:true})
     .then(
       null,
@@ -18,6 +36,7 @@ angular.module('roomfinder.controllers', [])
   var mapa;
   var roomPosition = room.pos;
   var userPosition =  null;
+  var roomStack = [];
   var magOffset = {
     x: 100,
     y: 20,
@@ -28,81 +47,32 @@ angular.module('roomfinder.controllers', [])
     y: 100,
     padding: 10
   };
-  var magnify = {
-    min: {
-      x: 0,
-      y: 0
-    },
-    max: {
-      x: 0,
-      y: 0
-    },
-    width: 64,
-    height: 64,
-    onClick: function () {
-      console.log('Magnify');
+  var magnify = button('img/magnify.png', function () {
+    if(roomStack.length == 0){
+      return;
     }
-  };
-  magnify.img = new Image();
-  magnify.img.src = 'img/magnify.png';
-  var reduce = {
-    min: {
-      x: 0,
-      y: 0
-    },
-    max: {
-      x: 0,
-      y: 0
-    },
-    width: 64,
-    height: 64,
-    onClick: function () {
-      console.log('Reduce');
+    setMapa(roomStack.pop());
+    canvas.centerAt(Mapas.gps2map(mapa, room.pos));
+  });
+  var reduce = button('img/reduce.png', function () {
+    if(mapa.out){
+      roomStack.push(mapa);
+      setMapa(Mapas.getByCode(mapa.out));
+      canvas.centerAt(Mapas.gps2map(mapa, room.pos));
     }
-  };
-  reduce.img = new Image();
-  reduce.img.src = 'img/reduce.png';
-  var upstairs = {
-    min: {
-      x: 0,
-      y: 0
-    },
-    max: {
-      x: 0,
-      y: 0
-    },
-    width: 64,
-    height: 64,
-    onClick: function () {
-      var novoMapa = Mapas.getByLocation(mapa.bloco, mapa.andar+1);
-      if(novoMapa){
-        setMapa(novoMapa);
-      }
+  });
+  var upstairs = button('img/up.png', function () {
+    var novoMapa = Mapas.getByLocation(mapa.bloco, mapa.andar+1);
+    if(novoMapa){
+      setMapa(novoMapa);
     }
-  };
-  upstairs.img = new Image();
-  upstairs.img.src = 'img/up.png';
-  var downstairs = {
-    min: {
-      x: 0,
-      y: 0
-    },
-    max: {
-      x: 0,
-      y: 0
-    },
-    width: 64,
-    height: 64,
-    onClick: function () {
-
-      var novoMapa = Mapas.getByLocation(mapa.bloco, mapa.andar-1);
-      if(novoMapa){
-        setMapa(novoMapa);
-      }
+  });
+  var downstairs = button('img/down.png', function () {
+    var novoMapa = Mapas.getByLocation(mapa.bloco, mapa.andar-1);
+    if(novoMapa){
+      setMapa(novoMapa);
     }
-  };
-  downstairs.img = new Image();
-  downstairs.img.src = 'img/down.png';
+  });
   var canvas =  FreeCanvas.setCanvas('canvas', function (context) {
     if(canvas == undefined)
       return;
