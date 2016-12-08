@@ -1295,6 +1295,8 @@ angular.module('roomfinder.services', [])
         rooms.forEach(function(entry){
           cmp = entry.code.replace('-','').toLowerCase();
           if(cmp.indexOf(term)>-1){
+            if(!entry.name)
+              entry.name = entry.code;
             results.push(entry);
           }
         });
@@ -1306,14 +1308,12 @@ angular.module('roomfinder.services', [])
   .factory('Teachers', function () {
     var teachers = [
       {
-        name: '',
-        department: '',
-        room: ''
+        name: 'Thiago Alexandre Salgueiro Pardo',
+        code: ''
       },
       {
         name: '',
-        department: '',
-        room: ''
+        code: ''
       }
     ];
 

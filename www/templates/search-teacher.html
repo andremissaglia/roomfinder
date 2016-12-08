@@ -11,9 +11,9 @@
       </label>
     </div>
     <ion-list>
-      <a ng-repeat="result in results" class="item item-icon-left" ui-sref="map({code:result.name})">
+      <a ng-repeat="result in results" class="item item-icon-left" ui-sref="map({code:result.code})">
         <i class="icon ion-ios-location"></i>
-        {{result.name}}
+        {{result.code}}
       </a>
     </ion-list>
   </div>

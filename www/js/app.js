@@ -31,6 +31,12 @@ angular.module('roomfinder', [
   .state('search', {
     url: '/search',
     templateUrl: 'templates/search.html',
+    controller: 'SearchCtrl',
+  })
+  .state('searchTeacher', {
+    url: '/searchTeacher',
+    templateUrl: 'templates/search.html',
+    controller: 'TeacherCtrl',
   });
 
 
