@@ -1,7 +1,7 @@
 require('numeric')
-var a = {gps:{x:-22.007402,y:-47.894562},mapa:{x:200, y:124}};
-var b = {gps:{x:-22.007509,y:-47.894566},mapa:{x:200, y:304}};
-var c = {gps:{x:-22.007506,y:-47.894234},mapa:{x:759, y:304}};
+var a = {gps:{x:-22.007651,y:-47.894567},mapa:{x:29, y:551}};
+var b = {gps:{x:-22.007564,y:-47.894577},mapa:{x:30, y:305}};
+var c = {gps:{x:-22.007663,y:-47.894198},mapa:{x:1093, y:552}};
 
 //vetores auxiliares do mapa
 var mva = [b.mapa.x-a.mapa.x, b.mapa.y-a.mapa.y];
@@ -48,20 +48,4 @@ var map2gps = function(map_pos){
 	return numeric.add(pos, gp0);
 }
 console.log({transform:M, p0: gp0});
-console.log('3-001 ' + map2gps([414,393]));
-console.log('3-002 ' + map2gps([352,230]));
-console.log('3-003a ' + map2gps([554,238]));
-console.log('3-003b ' + map2gps([414,319]));
-console.log('3-004a ' + map2gps([309,172]));
-console.log('3-004b ' + map2gps([309,219]));
-console.log('3-005 ' + map2gps([646,124]));
-console.log('3-006 SMA ' + map2gps([352,520]));
-console.log('3-006 SSC' + map2gps([237,531]));
-console.log('3-006 SCC' + map2gps([246,543]));
-console.log('3-006 SME' + map2gps([270,543]));
-console.log('3-008 ' + map2gps([492,455]));
-console.log('3-009 ' + map2gps([459,492]));
-console.log('3-010 ' + map2gps([614,492]));
-console.log('3-011 ' + map2gps([721,492]));
-console.log('3-012 ' + map2gps([876,492]));
->>>>>>> Stashed changes
+console.log(map2gps([1027,404]));
