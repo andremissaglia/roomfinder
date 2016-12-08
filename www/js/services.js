@@ -1342,7 +1342,6 @@ angular.module('roomfinder.services', [])
           });
           if(found && foundAll)
             result[entry.name] = entry;
-
         });
         return results;
       }
