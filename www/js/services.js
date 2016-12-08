@@ -806,7 +806,7 @@ angular.module('roomfinder.services', [])
       {
         code: '2-001',
         maps: ['ICMC2-0'],
-        pos: [ -22.00760711638041, -47.894895852414045 ] 
+        pos: [ -22.00760711638041, -47.894895852414045 ]
       },
       //FIM - ICMC BLOCO 2 (BIBLIOTECA) 0 29 ~ 30
       //INICIO - ICMC BLOCO 2 (BIBLIOTECA) 1
@@ -1045,6 +1045,29 @@ angular.module('roomfinder.services', [])
           }
         });
         return results;
+
+      }
+    };
+  })
+  .factory('Rooms', function () {
+    var teachers = [
+      {
+        name: '',
+        department: '',
+        room: ''
+      },
+      {
+        name: '',
+        department: '',
+        room: ''
+      }
+    ];
+
+    return {
+      get: function(name) {
+
+      },
+      find: function(string) {
 
       }
     };
