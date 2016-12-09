@@ -4,7 +4,7 @@ angular.module('roomfinder', [
   'roomfinder.services',
   'ngCordova',
 ])
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaStatusbar) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,8 +15,9 @@ angular.module('roomfinder', [
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      // StatusBar.styleDefault();
     }
+    $cordovaStatusbar.styleHex("#295CB4");
   });
 })
 
