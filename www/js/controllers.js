@@ -29,8 +29,6 @@ angular.module('roomfinder.controllers', [])
       userPosition = [position.coords.latitude, position.coords.longitude];
       canvas.draw();
   });
-
-  console.log();
   var room = Rooms.get($stateParams.code);
   var roomMap = Mapas.getByCode(room.maps[0]);
   var mapa;
@@ -52,12 +50,14 @@ angular.module('roomfinder.controllers', [])
       return;
     }
     setMapa(roomStack.pop());
+    console.log(Mapas.gps2map(mapa, room.pos));
     canvas.centerAt(Mapas.gps2map(mapa, room.pos));
   });
   var reduce = button('img/reduce.png', function () {
     if(mapa.out){
       roomStack.push(mapa);
       setMapa(Mapas.getByCode(mapa.out));
+      console.log(Mapas.gps2map(mapa, room.pos));
       canvas.centerAt(Mapas.gps2map(mapa, room.pos));
     }
   });
@@ -81,7 +81,7 @@ angular.module('roomfinder.controllers', [])
   }, function (context) {
     if(canvas == undefined)
       return;
-    if(mapa.andar == roomMap.andar){
+    if(mapa.andar == roomMap.andar || roomStack.length > 0){
       var pos = Mapas.gps2map(mapa, roomPosition);
       pos = canvas.world2canvas(pos);
       context.drawImage(point, pos[0]-14, pos[1]-40);
