@@ -90,8 +90,9 @@ angular.module('roomfinder.services')
       var isDragging = false;
       canvas.addEventListener('click', function(event){
         buttons.forEach(function (button) {
-          if(checkCollision(button, event.x, event.y))
+          if(checkCollision(button, event.clientX, event.clientY)) {
             button.onClick();
+          }
         });
       });
       canvas.addEventListener('mousedown', function(event){

@@ -126,6 +126,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC3-0',
         andar: 0,
         bloco: 'ICMC3N',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC3-T.svg',
         transform: [[ -62964.63682226217, 1684303.8940674686 ],
          [ -1682811.4459484373, 15206.135952631372 ] ],
@@ -155,6 +156,7 @@ angular.module('roomfinder.services', [])
         code: 'ICMC3-2N',
         andar: 2,
         bloco: 'ICMC3N',
+        out: 'campus1',
         src: 'img/mapas/icmc/ICMC3-2N.svg',
         transform: [ [ 2944134.0127535816, -150613.7294163927 ],
           [ -2918340.313332292, 4660.924314997362 ] ],
@@ -165,9 +167,9 @@ angular.module('roomfinder.services', [])
         andar: 0,
         bloco: '',
         src: 'img/mapas/campus1.svg',
-         transform: [ [ 344214.08379879146, 2894662.8193039773 ],
-        [ -2837882.641506043, -89578.84762890868 ] ],
-  p0: [ -22.007455792202332, -47.8946002312556 ]
+         transform: [ [ 4295.434497367154, 126441.38057139616 ],
+        [ -138834.12456964675, 3715.2047181358644 ] ],
+  p0: [ -22.001809785173233, -47.901687209068186 ]
       }
 
     ];
