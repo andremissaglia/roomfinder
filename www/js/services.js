@@ -1448,6 +1448,7 @@ angular.module('roomfinder.services', [])
   .factory('Teachers', ['RemoveAccentuation', function (RemoveAccentuation) {
     var teachers = [
       // INICIO 4-1XX
+      
       {
         name: 'Marcio Fuzeto Gameiro',
         code: '4-101'
@@ -1573,6 +1574,7 @@ angular.module('roomfinder.services', [])
         code: '4-142'
       },
       // FIM 4-1XX
+
       // INICIO 4-2XX
 
       {
@@ -1694,11 +1696,250 @@ angular.module('roomfinder.services', [])
       },
       {
         name: 'Esther Pacheco de Almeida Prado',
-        code: '4-222B'
+        code: '4-232B'
+      },
+      {
+        name: 'Maristela Oliveira dos Santos',
+        code: '4-235'
+      },
+      {
+        name: 'Roseli Aparecida Francelin Romero',
+        code: '4-236'
+      },
+      {
+        name: 'Janete Crema Simal',
+        code: '4-237'
+      },
+      {
+        name: 'Maria do Carmo Carminatto',
+        code: '4-238'
+      },
+      {
+        name: 'Marinho Gomes de Andrade Filho',
+        code: '4-239'
+      },
+      {
+        name: 'Mário de Castro Andrade Filho',
+        code: '4-240'
+      },
+      {
+        name: 'Sueli Mieko Tanaka Aki',
+        code: '4-242'
+      },
+      // FIM 4-2XX
+
+      //INICIO 3-1XX
+
+      {
+        name: 'Roberto Federico Ausas',
+        code: '3-159'
+      },
+      {
+        name: 'Eder Ritis Aragão Costa',
+        code: '3-161'
+      },
+      {
+        name: 'Thaís Jordão',
+        code: '3-161'
+      },
+      {
+        name: 'Alexandre Ananin',
+        code: '3-163'
+      },
+      {
+        name: 'Carlos Henrique Grossi Ferreira',
+        code: '3-163'
+      },
+      {
+        name: 'Washington Luiz Marar',
+        code: '3-109'
+      },
+      {
+        name: 'José Alberto Cuminato',
+        code: '3-110'
+      },
+      {
+        name: 'Behrooz Mirzaii',
+        code: '3-111'
+      },
+      {
+        name: 'Marcelo Garcia Manzato',
+        code: '3-111'
+      },
+      {
+        name: 'José Carlos Maldonado',
+        code: '3-112'
+      },
+      {
+        name: 'Cibele Maria Russo Noveli',
+        code: '3-113'
+      },
+      {
+        name: 'Marina Andretta',
+        code: '3-113'
+      },
+      {
+        name: 'Paulo César Masiero',
+        code: '3-114'
+      },
+      {
+        name: 'Vânia de Oliveira Neves',
+        code: '3-114'
+      },
+      {
+        name: 'Vanderlei Bonato',
+        code: '3-115'
+      },
+      {
+        name: 'Edson dos Santos Moreira',
+        code: '3-116'
+      },
+      {
+        name: 'Miriam Cardoso Utsumi',
+        code: '3-117'
+      },
+      {
+        name: 'Paulo Afonso Faria da Veiga',
+        code: '3-118'
+      },
+      {
+        name: 'Maria Aparecida Soares Ruas',
+        code: '3-119'
+      },
+      {
+        name: 'Kalinka Regina Lucas Jaquie Castelo Branco',
+        code: '3-120'
+      },
+      {
+        name: 'Hermano de Souza Ribeiro',
+        code: '3-121'
+      },
+      {
+        name: 'André Carlos Ponce de Leon Ferreira de Carvalho',
+        code: '3-122'
+      },
+      {
+        name: 'Alexandre Nolasco de Carvalho',
+        code: '3-123'
+      },
+      {
+        name: 'Denis Fernando Wolf',
+        code: '3-124'
+      },
+      {
+        name: 'Hildebrando Munhoz Rodrigues',
+        code: '3-125'
+      },
+      {
+        name: 'Fernando Manfio',
+        code: '3-126'
+      },
+      {
+        name: 'Nivaldo de Góes Grulha Júnior',
+        code: '3-126'
+      },
+      {
+        name: 'Oziride Manzoli Neto',
+        code: '3-127'
+      },
+      {
+        name: 'Wagner Vieira Leite Nunes',
+        code: '3-128'
+      },
+      // FIM 3-1XX
+
+      // INICIO 3-2XX
+
+      {
+        name: 'Márcio Eduardo Delamaro',
+        code: '3-229'
+      },
+      {
+        name: 'Raimundo Nonato Araújo dos Santo',
+        code: '3-230'
+      },
+      {
+        name: 'Regilene Delazari dos Santos Oliveira',
+        code: '3-231'
+      },
+      {
+        name: 'Daniel Smania Brandão',
+        code: '3-232'
+      },
+      {
+        name: 'Victor Hugo Jorge Perez',
+        code: '3-234'
+      },
+      {
+        name: 'Roberta Godoi Wik Atique',
+        code: '3-235'
+      },
+      {
+        name: 'Tiago Pereira da Silva',
+        code: '3-236'
+      },
+      {
+        name: 'Robson Leonardo Ferreira Cordeiro',
+        code: '3-237'
+      },
+      {
+        name: 'Eduardo Marques',
+        code: '3-238'
+      },
+      {
+        name: 'Herivelto Martins Borges Filho',
+        code: '3-239'
+      },
+      {
+        name: 'José Fernando Rodrigues Júnior',
+        code: '3-240'
+      },
+      {
+        name: 'Katiane Silva Conceição',
+        code: '3-241'
+      },
+      {
+        name: 'Maria Luísa Bambozzi de Oliveira',
+        code: '3-241'
+      },
+      {
+        name: 'Rodrigo Fernandes de Mello',
+        code: '3-242'
+      },
+      {
+        name: 'Fernando Vieira Paulovich',
+        code: '3-243'
+      },
+      {
+        name: 'Ali Tahzibi',
+        code: '3-244'
+      },
+      {
+        name: 'Moacir Pereira Ponti Júnior',
+        code: '3-245'
+      },
+      {
+        name: 'Maria da Graça Campos Pimentel',
+        code: '3-246'
+      },
+      {
+        name: 'Antônio Castelo Filho',
+        code: '3-247'
+      },
+      {
+        name: 'Renata Pontin de Mattos Fortes',
+        code: '3-248'
+      },
+      {
+        name: 'Marcelo José Saia',
+        code: '3-249'
       },
     ];
     teachers.forEach(function(entry){
       entry.nameClean = RemoveAccentuation(entry.name);
+    });
+    teachers.sort(function(a, b){
+      return a.nameClean > b.nameClean ? 1 : -1;
     });
 
     return {
