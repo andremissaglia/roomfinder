@@ -1645,6 +1645,55 @@ angular.module('roomfinder.services', [])
         name: 'Renata Cristina Geromel Meneghetti',
         code: '4-220'
       },
+
+      {
+        name: 'João do Espírito Santo Batista Neto',
+        code: '4-222'
+      },
+      {
+        name: 'Alneu de Andrade Lopes',
+        code: '4-223'
+      },
+      {
+        name: 'Miguel Vinicius Santini Frasson',
+        code: '4-224'
+      },
+      {
+        name: 'Solange Oliveira Rezende',
+        code: '4-225'
+      },
+      {
+        name: 'Leandro Fiorini Aurichi',
+        code: '4-226'
+      },
+      {
+        name: 'Elaine Parros Machado de Souza',
+        code: '4-228'
+      },
+      {
+        name: 'Rudinei Goularte',
+        code: '4-229'
+      },
+      {
+        name: 'Ana Paula Peron',
+        code: '4-230B'
+      },
+      {
+        name: 'Jorge Luís e Silva',
+        code: '4-231'
+      },
+      {
+        name: 'Paulo Leandro Dattori da Silva',
+        code: '4-232A'
+      },
+      {
+        name: 'Leandro Franco de Souza',
+        code: '4-233'
+      },
+      {
+        name: 'Esther Pacheco de Almeida Prado',
+        code: '4-222B'
+      },
     ];
     teachers.forEach(function(entry){
       entry.nameClean = RemoveAccentuation(entry.name);
