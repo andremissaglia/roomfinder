@@ -49,6 +49,7 @@ angular.module('roomfinder.controllers', [])
     if(roomStack.length == 0){
       return;
     }
+    canvas.clearTransform();
     setMapa(roomStack.pop());
     console.log(Mapas.gps2map(mapa, room.pos));
     canvas.centerAt(Mapas.gps2map(mapa, room.pos));
@@ -56,6 +57,7 @@ angular.module('roomfinder.controllers', [])
   var reduce = button('img/reduce.png', function () {
     if(mapa.out){
       roomStack.push(mapa);
+      canvas.clearTransform();
       setMapa(Mapas.getByCode(mapa.out));
       console.log(Mapas.gps2map(mapa, room.pos));
       canvas.centerAt(Mapas.gps2map(mapa, room.pos));

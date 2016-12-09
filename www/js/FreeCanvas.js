@@ -188,6 +188,10 @@ angular.module('roomfinder.services')
         lastScale = 1;
       });
 
+      var clearTransform = function() {
+        transform = math.matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]]);
+      }
+
       resizeCanvas();
 
       return {
@@ -200,6 +204,7 @@ angular.module('roomfinder.services')
         removeButton: removeButton,
         getBounds: getBounds,
         centerAt: centerAt,
+        clearTransform: clearTransform,
       }
     }
   };
